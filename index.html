@@ -3,20 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
+    <title>PROJEK TO DO LIST</title>
+
     <!-- CSS EXTERNAL -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- TAILWIND CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+     <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- HEADER SECTION -->
-    <header></header>
+    <header>
+  <div class="header-content">
+    <svg xmlns="http://www.w3.org/2000/svg" 
+         fill="none" viewBox="0 0 24 24" 
+         stroke-width="2" stroke="currentColor" 
+         class="icon">
+      <path stroke-linecap="round" stroke-linejoin="round" 
+            d="M9 12.75l2.25 2.25L15 9.75m-3-6.75a9 9 0 110 18 9 9 0 010-18z" />
+    </svg>
+    <h1>My To Do List</h1>
+  </div>
+</header>
 
     <!-- MAIN SECTION -->
-    <main></main>
+    <main>
+
+        <section id="input-section" class="py-[16px]">
+            <form>
+                <input type="text" class="border-b py-2" id="task-input" placeholder="Add a new task...">
+                <input type="date" class="border-b py-2" id="task-date" placeholder="Select due date...">
+                <button type="button" id="add-task-btn" onclick="validateInput();" class="bg-blue-500 text-white px-4 py-2 flex items-center gap-2">
+  <svg xmlns="http://www.w3.org/2000/svg" 
+       fill="none" viewBox="0 0 24 24" 
+       stroke-width="2" stroke="currentColor" 
+       class="w-5 h-5">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+  </svg>
+  Add Task
+</button>
+            </form>
+        </section>
+
+        <section class="flex justify-between items-center mt-4">
+  <div class="flex items-center gap-2">
+    <label for="filter-select" class="font-medium text-gray-700">Filter:</label>
+    <select id="filter-select" onchange="filterTasks()" 
+            class="border border-gray-300 rounded-md px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
+      <option value="all">All</option>
+      <option value="pending">Pending</option>
+      <option value="done">Done</option>
+    </select>
+  </div>
+
+  <button onclick="deleteAllTasks()" 
+          class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 flex items-center gap-2 rounded-md shadow transition">
+        <svg xmlns="http://www.w3.org/2000/svg" 
+         fill="none" viewBox="0 0 24 24" 
+         stroke-width="2" stroke="currentColor" 
+         class="w-5 h-5">
+      <path stroke-linecap="round" stroke-linejoin="round" 
+            d="M6 18L18 6M6 6l12 12" />
+    </svg>
+    Delete All
+  </button>
+</section>
+
+        <section class="py-[16px]">
+            <h2 class="text-2xl font-bold">List of To Do Tasks</h2>
+            <ul id="task-list" class="text-center">
+                <p>No tasks added yet.</p>
+            </ul>
+        </section>
+    </main>
 
     <!-- FOOTER SECTION -->
-    <footer></footer>
+    <footer class="text-center py-4">
+        <p>&copy; 2025 Amura's To Do List</p>
+    </footer>
 
     <!-- JAVASCRIPT EXTERNAL -->
     <script src="js/script.js"></script>
